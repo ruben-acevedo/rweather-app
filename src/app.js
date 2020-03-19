@@ -6,9 +6,7 @@ const app = express();
 const publicPath = path.join(__dirname, "../public");
 app.use(express.static(publicPath));
 
-app.listen(3000, () => {
-  console.log("Server is up on port 3000.");
-});
+const port = process.env.port || 3000;
 
 app.get("/weather", (req, res) => {
   GetLocationInfo(req.query.location, data => {
@@ -23,4 +21,8 @@ app.get("/weather", (req, res) => {
       });
     });
   });
+});
+
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}.`);
 });
