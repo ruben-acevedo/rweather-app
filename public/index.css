@@ -1,0 +1,45 @@
+#title {
+  padding-top: 10px;
+  text-align: center;
+  color: black;
+  font-size: 30px;
+  font-family: "Raleway";
+}
+
+body {
+  background: whitesmoke;
+}
+
+#githubimg {
+  width: 30px;
+  height: 30px;
+}
+
+#celsius {
+  font-family: "Bellota Text";
+  text-align: center;
+  margin: auto;
+  font-size: 50px;
+}
+
+#otherStats {
+  font-family: "Bellota Text";
+  text-align: center;
+  margin: auto;
+}
+
+div {
+  text-align: center;
+}
+
+#foot {
+  position: absolute;
+  bottom: 5px;
+  font-family: "Raleway";
+  width: 100%;
+}
+
+#city {
+  font-family: "Raleway";
+  text-align: center;
+}
