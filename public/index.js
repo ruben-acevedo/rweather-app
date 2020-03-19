@@ -7,7 +7,7 @@ const otherStats = document.querySelector("#otherStats");
 weatherForm.addEventListener("submit", e => {
   e.preventDefault();
 
-  fetch(`http://localhost:3000/weather?location=${search.value}`)
+  fetch(`/weather?location=${search.value}`)
     .then(res => res.json())
     .then(json => {
       city.textContent = `Weather in ${json.location},`;
