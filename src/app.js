@@ -8,19 +8,14 @@ app.use(express.static(publicPath));
 
 const port = process.env.PORT || 3000;
 
-app.get("/weather", (req, res) => {
-  GetLocationInfo(req.query.location, data => {
-    Forecast(data.latitude, data.longitude, forecastreturn => {
-      res.send({
-        temperature: forecastreturn.temperature,
-        apparentTemperature: forecastreturn.apparentTemperature,
-        precipProbability: forecastreturn.precipProbability,
-        humidity: forecastreturn.humidity,
-        windSpeed: forecastreturn.windSpeed,
-        location: data.location
-      });
-    });
-  });
+app.get("/weather", async (req, res) => {
+  try {
+    const { latitude, longitude } = await GetLocationInfo(req.query.location);
+    const forecast = await Forecast(latitude, longitude);
+    res.send(forecast);
+  } catch (e) {
+    res.status(500).send({ error: e });
+  }
 });
 
 app.listen(port, () => {
